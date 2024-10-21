@@ -3,6 +3,7 @@ import cx from 'classnames';
 import './chapter.scss';
 import { useTranslation } from 'react-i18next';
 import { Waypoint } from 'react-waypoint';
+import LegendIcon from '../icons/legend-icon';
 
 const ALIGNMENTS = {
   left: 'w-full lg:w-1/3 m-left-chapter',
@@ -10,7 +11,20 @@ const ALIGNMENTS = {
   right: 'w-full lg:w-1/3 self-end m-right-chapter',
 };
 
-function Chapter({ id, theme, title, image, images, description, currentChapterId, legend, sources, alignment, setCurrentChapter, setCurrentAction }) {
+function Chapter({
+  id,
+  theme,
+  title,
+  image,
+  images,
+  description,
+  currentChapterId,
+  legend,
+  sources,
+  alignment,
+  setCurrentChapter,
+  setCurrentAction,
+}) {
   const { t } = useTranslation();
 
   const stepClasses = 'step max-w-md opacity-25';
@@ -37,17 +51,20 @@ function Chapter({ id, theme, title, image, images, description, currentChapterI
   );
 
   const renderLegend = (legend, sources) => (
-    <div className={cx("text-sm pb-12 px-12")}>
+    <div className={cx('text-sm pb-12 px-12')}>
       {legend.map((l) => (
-        <div key={l.title} className="flex items-center mb-4">
-          <span
-            className="legendItem w-8 h-8 mr-4"
-            style={{
-              borderRadius: l.type === 'circle' ? '50%' : 'none',
-              backgroundColor: l.color,
-              border: l.border ? `solid 2px ${l.border}` : 'none'
-            }}
-          />
+        <div key={l.title} className="flex items-center gap-4 mb-4">
+          {l.icon ? (
+            <LegendIcon icon={l.icon} />
+          ) : (
+            <span
+              className="legendItem w-8 h-8 mr-4"
+              style={{
+                backgroundColor: l.color,
+                border: l.border ? `solid 2px ${l.border}` : 'none',
+              }}
+            />
+          )}
           <span>{t(l.title)}</span>
         </div>
       ))}
@@ -63,34 +80,25 @@ function Chapter({ id, theme, title, image, images, description, currentChapterI
     setCurrentChapter(id);
     setCurrentAction('enter');
   };
-  const onLeave= () => {
+  const onLeave = () => {
     setCurrentChapter(id);
     setCurrentAction('leave');
   };
 
   return (
     <div id={id} className={cx(classList, ALIGNMENTS[alignment])}>
-      <Waypoint
-        onEnter={onEnter}
-        onLeave={onLeave}
-      />
-      <div className={theme}>
-        {images &&
-          images.filter((i) => i.position === 'top').map((i) => renderImage(i))}
+      <Waypoint onEnter={onEnter} onLeave={onLeave} />
+      <div className={cx(theme, 'rounded-lg')}>
+        {images && images.filter((i) => i.position === 'top').map((i) => renderImage(i))}
         {title && (
           <div className="content text-base py-12 px-12 leading-6">
-            {title && <h3 className="font-serif text-2xl pb-6">{t(title)}</h3>}
-            {description && (
-              <p className="text-sm leading-8">{t(description)}</p>
-            )}
+            {title && <h3 className="font-lora text-2xl pb-6">{t(title)}</h3>}
+            {description && <p className="text-sm leading-8">{t(description)}</p>}
           </div>
         )}
         {legend && renderLegend(legend, sources)}
         {image && renderImage({ src: image })}
-        {images &&
-          images
-            .filter((i) => i.position === 'bottom')
-            .map((i) => renderImage(i))}
+        {images && images.filter((i) => i.position === 'bottom').map((i) => renderImage(i))}
       </div>
     </div>
   );

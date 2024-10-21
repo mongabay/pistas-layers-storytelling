@@ -228,7 +228,7 @@ export default {
               layer: 'coca-crops-density-20241002t1-55l40t',
               opacity: .1,
 
-          }
+          },
         ],
         onChapterExit: []
     },

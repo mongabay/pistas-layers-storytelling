@@ -9,7 +9,6 @@ export default {
     "Earth Index, an artificial intelligence algorithm, detected 76 clandestine landing strips hidden in the Peruvian Amazon.":'Earth Index, un algoritmo de inteligencia artificial, detectó 76 pistas de aterrizaje clandestinas ocultas en la selva peruana.',
     'Landing strips':'Pistas de aterrizaje',
     "National Police of Peru's Anti-Narcotics Unit (Dirandro), Earth Genome, OpenStreetMap, and Ucayali Regional Government.":'Dirandro, Gore Ucayali, Earth Genome y OpenStreetMap.',
-    "Narco airstrips":'Narcopistas',
     "Airstrip 69":'Pista 69',
     'Journalistic verification of each aistrip involved cross referencing results from Earth Index with government data, open source information and local sources. This investigation confirms that 67 of the 76 drug runways are distributed between Ucayali (45), Huánuco (17) and Pasco (5), and today serve drug trafficking.':'La verificación periodística de cada una de ellas, con fuentes oficiales y locales, fue clave para confirmar que 67 de las 76 narcopistas están distribuidas entre Ucayali (45), Huánuco (17) y Pasco (5), y sirven hoy al narcotráfico.',
     "Coca crop density in 2023":'Densidad del cultivo de coca',

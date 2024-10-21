@@ -63,6 +63,7 @@ function Chapter({ id, theme, title, image, images, description, currentChapterI
     setCurrentChapter(id);
     setCurrentAction('enter');
   };
+
   const onLeave= () => {
     setCurrentChapter(id);
     setCurrentAction('leave');
@@ -73,6 +74,8 @@ function Chapter({ id, theme, title, image, images, description, currentChapterI
       <Waypoint
         onEnter={onEnter}
         onLeave={onLeave}
+        topOffset="-20%"
+        bottomOffset="20%"
       />
       <div className={theme}>
         {images &&

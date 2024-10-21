@@ -4,6 +4,7 @@ export const layerTypes = {
   circle: ['circle-opacity', 'circle-stroke-opacity'],
   symbol: ['icon-opacity', 'text-opacity'],
   raster: ['raster-opacity'],
+  heatmap: ['heatmap-opacity'],
   'fill-extrusion': ['fill-extrusion-opacity']
 };
 

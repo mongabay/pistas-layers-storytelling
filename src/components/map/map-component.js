@@ -1,8 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import providers from './map-providers';
 import { transformRequest } from './map-utils';
-import { LayerManager, Layer } from 'layer-manager/dist/components';
-import { PluginMapboxGl } from 'layer-manager';
 import { useScrollFunctionality, useHandleResize } from './map-hooks';
 import ReactMapGL, { Marker } from 'react-map-gl';
 import mapboxgl from "mapbox-gl"; // This is a dependency of react-map-gl even if you didn't explicitly install it
@@ -82,21 +79,6 @@ const Map = (props) => {
             longitude={markerPosition.longitude}
             latitude={markerPosition.latitude}
           />
-        )}
-        {loaded && mapRef.current && (
-          <LayerManager // Only for external layers
-            map={mapRef.current.getMap()}
-            plugin={PluginMapboxGl}
-            providers={providers}
-          >
-            {Object.keys(externalLayersOpacity).map((layerId) => (
-              <Layer
-                key={layerId}
-                {...externalLayers.find((l) => l.id === layerId)}
-                opacity={externalLayersOpacity[layerId]}
-              />
-            ))}
-          </LayerManager>
         )}
       </ReactMapGL>
     </div>

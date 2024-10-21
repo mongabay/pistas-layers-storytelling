@@ -9,7 +9,6 @@ const Logos = ({ logos }) => {
           title={logo.name}
           alt={logo.name}
           href={logo.href}
-          // eslint-disable-next-line react/jsx-no-target-blank
           target="_blank"
           rel="noopener"
         >

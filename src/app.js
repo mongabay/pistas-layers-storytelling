@@ -17,12 +17,16 @@ const App = (props) => {
     byline,
     footer,
     intro,
-    logos
+    logos,
   } = props;
   const [currentChapterId, setCurrentChapter] = useState(chapters[0]);
   const [currentAction, setCurrentAction] = useState();
 
-  const renderError = (missing) => <div className="flex justify-center items-center h-screen">Please add the missing {missing}. Check the Readme</div>;
+  const renderError = (missing) => (
+    <div className="flex justify-center items-center h-screen">
+      Please add the missing {missing}. Check the Readme
+    </div>
+  );
   if (style === 'ADD YOUR MAPBOX STYLE HERE') {
     return renderError('Mapbox map style');
   }
@@ -33,7 +37,7 @@ const App = (props) => {
   return (
     <div>
       {intro && <Intro {...intro} />}
-      <Logos logos={logos}/>
+      <Logos logos={logos} />
       <Story
         hasIntro={!!intro}
         chapters={chapters}

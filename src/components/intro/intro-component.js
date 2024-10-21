@@ -8,29 +8,22 @@ import { useTranslation } from 'react-i18next';
 const Intro = ({ title, subtitle, date, social, height }) => {
   const { t } = useTranslation();
   const heightStyle = height ? { height: `${height}px` } : undefined;
-  const separatorClasses = "h-px bg-white block flex-1 opacity-25";
+  const separatorClasses = 'h-px bg-white block flex-1 opacity-25';
   return (
-    <div
-      className="intro step absolute h-screen w-full bg-cover bg-no-repeat"
-      style={heightStyle}
-    >
+    <div className="intro step absolute h-screen w-full bg-cover bg-no-repeat" style={heightStyle}>
       <div
         className="absolute h-screen w-full flex flex-col justify-center items-center"
         style={heightStyle}
       >
         <div className="container max-w-xl text-white text-center mb-10">
-          <h1 className="title font-serif mb-10">
-            {t(title)}
-          </h1>
+          <h1 className="title font-lora mb-10">{t(title)}</h1>
           <h2 className="text-lg font-regular">{t(subtitle)}</h2>
         </div>
         <div className="container max-w-xl text-white">
           {date && (
             <div className="text-xs font-bold text-white flex items-center mb-6">
               <span className={separatorClasses} />
-              <span className="font-bold uppercase px-1">
-                {`${t('Published')} ${t(date)}`}
-              </span>
+              <span className="font-bold uppercase px-1">{`${t('Published')} ${t(date)}`}</span>
               <span className={separatorClasses} />
             </div>
           )}
@@ -43,15 +36,10 @@ const Intro = ({ title, subtitle, date, social, height }) => {
           </div>
           {t('scroll down to discover')}
         </div>
-        {social && (
-          <SocialIcons
-            social={social}
-            className="absolute bottom-0 left-0 ml-3 mb-3"
-          />
-        )}
+        {social && <SocialIcons social={social} className="absolute bottom-0 left-0 ml-3 mb-3" />}
       </div>
     </div>
   );
-}
+};
 
 export default Intro;
